@@ -33,10 +33,10 @@ const Step1 = () => {
       </header>
 
       {/* 콘텐츠 */}
-      <div className="pt-20"> {/* 헤더 높이만큼 패딩 추가 */}
+      <div className="px-10 pt-20"> {/* 헤더 높이만큼 패딩 추가 */}
         {/* Step Description */}
         <div className="px-4 py-4 sm:px-6 md:px-12">
-          <p className="text-xl sm:text-2xl lg:text-4xl font-bold text-[#000000]">
+          <p className="text-xl sm:text-2xl md:text-3xl font-bold text-black">
             Step 1. 자기소개 작성
           </p>
           <p className="text-base sm:text-lg lg:text-xl font-light mt-2">
