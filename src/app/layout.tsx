@@ -5,6 +5,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { RecoilRoot } from "recoil";
 import Header from "@/components/Header";
+import React, { use, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Timeline from "@/components/Timeline";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,18 +30,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <RecoilRoot>
-          <div className="flex flex-col w-screen h-screen bg-white">
-            <Header />
-            <div className="px-10 py-6">
-              {children}
+    <RecoilRoot>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <div className="flex flex-col w-screen h-screen overflow-hidden">
+              <Header />
+              <div className="flex px-10 py-6 h-full overflow-y-auto">
+                {children}
+              </div>
+              <div className=" ">
+                <Timeline />
+              </div>
             </div>
-          </div>
-        </RecoilRoot>
-      </body>
-    </html>
+        </body>
+      </html>
+    </RecoilRoot>
+
   );
 }
