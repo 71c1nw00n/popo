@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header";
+import Image from "next/image";
 
 export default function CreateProfilePage() {
   return (
@@ -11,88 +11,94 @@ export default function CreateProfilePage() {
         <p className="text-[40px] text-gray-600">필요한 정보를 입력해주세요</p>
 
         {/* Profile Banner */}
-        <div className="relative mt-6 w-[80%] mx-auto items-center bg-lightgray rounded-lg h-32 flex items-center justify-center">
+        <div className="relative flex mt-6 w-[80%] mx-auto items-center justify-center bg-lightgray rounded-lg h-32 flex">
+          
+          <Image 
+            src="/img/profile.png" 
+            alt="profile"
+            width={200}
+            height={200}
+            className="absolute left-0 mt-[100px] ml-[60px]"
+          />
           <span className="text-darkgray text-[28px]">배너 사진</span>
-          <button className="absolute bottom-2 right-2 bg-white px-4 py-1 text-[28px] font-medium !text-red rounded-full shadow-md hover:bg-gray-100">
+          <button className="absolute bottom-4 right-4 bg-white px-4 py-1 text-[28px] text-gray-600 rounded-full shadow-md hover:bg-mediumgray">
             업로드
           </button>
         </div>
 
         {/* Form */}
-        <form className="mt-6 mx-[200px] min-w-[600px] w-[70%] mx-auto">
+        <form className="mt-5 mx-[200px] min-w-[600px] w-[70%] mx-auto">
           {/* Name */}
-          <div>
-            <label className="block text-[28px] font-medium text-black">이름</label>
+          <div className="mb-5 pl-[180px] flex flex-row gap-3 items-center break-0">
+            <label className="block text-[32px] font-medium break-0">이름</label>
             <input
               type="text"
-              className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+              className="text-[28px] w-[260px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
               placeholder="이름을 입력하세요"
             />
           </div>
-          <div className="grid grid-cols-2 gap-x-[60px] gap-y-4">
-
-
-            {/* Email */}
-            <div>
-              <label className="block text-[28px] font-medium text-black">메일</label>
-              <input
-                type="email"
-                className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
-                placeholder="jh532565@kaist.ac.kr"
-              />
-            </div>
-
+          <div className="grid grid-cols-2 gap-x-[60px] gap-y-3">
             {/* Phone */}
             <div>
-              <label className="block text-[28px] font-medium text-black">휴대전화</label>
+              <label className="block text-[32px] font-medium ">휴대전화</label>
               <input
                 type="text"
-                className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+                className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
                 placeholder="전화번호를 입력하세요"
               />
             </div>
 
-            {/* Major */}
+            {/* Email */}
             <div>
-              <label className="block text-[28px] font-medium text-black">전공</label>
+              <label className="block text-[32px] font-medium ">메일</label>
               <input
-                type="text"
-                className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
-                placeholder="전공을 입력하세요"
+                type="email"
+                className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
+                placeholder="jh532565@kaist.ac.kr"
               />
             </div>
 
             {/* School Name */}
             <div>
-              <label className="block text-[28px] font-medium text-black">학교명</label>
+              <label className="block text-[32px] font-medium ">학교명</label>
               <input
                 type="text"
-                className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+                className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
                 placeholder="학교명을 입력하세요"
+              />
+            </div>
+
+            {/* Major */}
+            <div>
+              <label className="block text-[32px] font-medium ">전공</label>
+              <input
+                type="text"
+                className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
+                placeholder="전공을 입력하세요"
               />
             </div>
 
             {/* Enrollment Period */}
             <div className="col-span-1">
-              <label className="block text-[28px] font-medium text-black">재학기간</label>
+              <label className="block text-[32px] font-medium ">재학기간</label>
               <div className="flex space-x-4">
                 <input
                   type="date"
-                  className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+                  className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
                 />
                 <input
                   type="date"
-                  className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+                  className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
                 />
               </div>
             </div>
 
             {/* GitHub or Blog */}
             <div>
-              <label className="block text-[28px] font-medium text-black">GitHub / 기술블로그</label>
+              <label className="block text-[32px] font-medium ">GitHub / 기술블로그</label>
               <input
                 type="text"
-                className="text-[24px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm focus:border-primary focus:ring focus:ring-tertiary"
+                className="text-[28px] p-[6px_10px] block w-full border border-darkgray rounded-md shadow-sm"
                 placeholder="GitHub 또는 블로그 URL을 입력하세요"
               />
             </div>
