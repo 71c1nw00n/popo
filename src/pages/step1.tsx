@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useRouter } from 'next/router';
 
 const Step1 = () => {
+  const router = useRouter();
   // 상태 관리: 선택된 버튼들
   const [selectedTraits, setSelectedTraits] = useState([]);
   const [selectedStyles, setSelectedStyles] = useState([]);
@@ -15,6 +17,16 @@ const Step1 = () => {
     }
   };
 
+  const handleNext = () => {
+    if (selectedTraits.length === 0 || 
+        selectedStyles.length === 0 || 
+        selectedFields.length === 0) {
+      alert("모든 항목의 키워드를 선택해주세요.");
+      return;
+    }
+    router.push('/step2'); // 다음 페이지 경로로 수정해주세요
+  };
+
   return (
     <div className="relative w-full h-auto bg-white overflow-hidden">
       {/* header */}
@@ -25,9 +37,12 @@ const Step1 = () => {
 
           {/* 네비게이션 메뉴 */}
           <nav className="flex space-x-6">
-            <a href="#Next" className="hover:text-gray-300 font-bold text-[#2300A1] text-xl">
+            <button 
+              onClick={handleNext}
+              className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
+            >
               다음
-            </a>
+            </button>
           </nav>
         </div>
       </header>
@@ -49,7 +64,7 @@ const Step1 = () => {
             성격 (최대 2개)
           </p>
           <div className="flex flex-wrap gap-2 mt-4">
-            {["쾌활한", "신중한", "꼼꼼한", "성실한", "진취적인", "긍정적인", "창의적인"].map((trait) => (
+            {["쾌활한", "신중한", "꼼꼼한", "성실한", "친근한", "진취적인", "긍정적인", "창의적인", "주체적인", "열정적인"].map((trait) => (
               <button
                 key={trait}
                 onClick={() => toggleSelection(trait, setSelectedTraits, selectedTraits, 2)}
@@ -64,6 +79,30 @@ const Step1 = () => {
             ))}
           </div>
         </div>
+                {/* 관심 개발 분야 */}
+                <div className="px-4 py-5 sm:px-6 md:px-12">
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2300A1] ">
+              관심 개발 분야 (최대 3개)
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+          {["front end", "back end", "웹 개발", "앱 개발", "게임 개발", "Computer Vision", "LLM"].map(
+            (field) => (
+              <button
+                key={field}
+                onClick={() => toggleSelection(field, setSelectedFields, selectedFields, 3)}
+                className={`px-4 py-2 rounded-md text-lg font-medium transition-colors ${
+                  selectedFields.includes(field)
+                    ? "bg-[#8588D2] text-white"
+                    : "bg-[#F0F0F0] text-black"
+                }`}
+          >
+            {field}
+          </button>
+        )
+      )}
+          </div>
+
+          </div>
         {/* 일하는 스타일 */}
         <div className="px-4 py-5 sm:px-6 md:px-12">
           <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2300A1]">
@@ -95,30 +134,7 @@ const Step1 = () => {
             ))}
           </div>
         </div>  
-        {/* 관심 개발 분야 */}
-          <div className="px-4 py-5 sm:px-6 md:px-12">
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2300A1] ">
-              관심 개발 분야 (최대 3개)
-            </p>
-            <div className="flex flex-wrap gap-2 mt-4">
-          {["front end", "back end", "웹 개발", "앱 개발", "게임 개발", "Computer Vision", "LLM"].map(
-            (field) => (
-              <button
-                key={field}
-                onClick={() => toggleSelection(field, setSelectedFields, selectedFields, 3)}
-                className={`px-4 py-2 rounded-md text-lg font-medium transition-colors ${
-                  selectedFields.includes(field)
-                    ? "bg-[#8588D2] text-white"
-                    : "bg-[#F0F0F0] text-black"
-                }`}
-          >
-            {field}
-          </button>
-        )
-      )}
-          </div>
 
-          </div>
 
       {/* SVG Bar */}
       <svg

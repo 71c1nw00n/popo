@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Step3 = () => {
   const handleAddExperience = () => {
-    const isConfirmed = window.confirm("새로운 인턴/연구 경험을 더 생성하시겠습니까?\n 완성된 요약은 포트폴리오에 추가됩니다.");
+    const isConfirmed = window.confirm("새로운 인턴/연구 경험을 더 생성하시겠습니까?\n 완성된 요약은 포트폴리오에 추가되며, 포트폴리오 완성 이후에만 수정 가능합니다.");
     if (isConfirmed) {
       window.location.href = "/step3"; // 또는 원하는 경로
     }
@@ -12,6 +12,12 @@ const Step3 = () => {
     const isConfirmed = window.confirm("완성된 요약을 포트폴리오에 작성하지 않고 새로운 내용을 생성하시겠습니까?\n 완성된 요약은 사라집니다.");
     if (isConfirmed) {
       window.location.href = "/step3"; // 또는 원하는 경로
+    }
+  };
+  const handleNextstep = () => {
+    const isConfirmed = window.confirm("지금까지 작성한 내용을 모두 포트폴리오에 추가하고 다음 단계로 넘어가시겠습니까?");
+    if (isConfirmed) {
+      window.location.href = "/step4"; // 또는 원하는 경로
     }
   };
   return (
@@ -36,12 +42,12 @@ const Step3 = () => {
             >
               다시 생성하기
             </button>
-            <Link 
-              href="/" 
+            <button 
+              onClick={handleNextstep}
               className="hover:text-gray-300 font-bold text-[#2300A1] text-xl"
             >
               다음 단계로
-            </Link>
+            </button>
           </nav>
           
         </div>

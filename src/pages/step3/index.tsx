@@ -119,7 +119,7 @@ const Step3 = () => {
           경험 유형을 선택하세요
         </option>
         <option value="회사 인턴">회사 인턴</option>
-        <option value="연구실 경험">연구실 경험</option>
+        <option value="연구실 경험">연구실 인턴</option>
       </select>
 
       {/* 입력 필드 - 조건부 렌더링 제거 */}
