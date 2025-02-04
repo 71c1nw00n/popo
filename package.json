@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "autoprefixer": "^10.4.20",
+=======
+>>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
     "next": "15.1.6",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
@@ -19,7 +22,12 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17"
+=======
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+>>>>>>> e76a7791fc77e0a67c40fba7e91a1a6240348f77
   }
 }
