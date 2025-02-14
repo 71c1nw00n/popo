@@ -9,6 +9,10 @@ import React, { use, useState } from "react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Timeline from "@/components/Timeline";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// QueryClient 생성
+const queryClient = new QueryClient();
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,21 +36,22 @@ export default function RootLayout({
 }) {
 
   return (
-    <RecoilRoot>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            <div className="flex flex-col w-screen h-screen overflow-hidden">
-              <Header />
-              <div className="flex px-10 py-6 h-full overflow-y-auto">
-                {children}
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <html lang="en">
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+              <div className="flex flex-col w-screen h-screen overflow-hidden">
+                <Header />
+                <div className="flex px-10 py-6 h-full overflow-y-auto">
+                  {children}
+                </div>
+                <div className=" ">
+                  <Timeline />
+                </div>
               </div>
-              <div className=" ">
-                <Timeline />
-              </div>
-            </div>
-        </body>
-      </html>
-    </RecoilRoot>
-
+          </body>
+        </html>
+      </RecoilRoot>
+    </QueryClientProvider>
   );
 }
